@@ -14,12 +14,14 @@ const authRouter=require('./routes/authRouter')
 const logoutRouter=require('./routes/logoutRouter')
 
 const port=process.env.PORT || 3000;
+app.use(express.json());
 
 //built-in middlewares
 app.use(express.urlencoded({extended:false})); //parses the data from body of request
 app.use(express.json()); //parses json
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'public')))  // helps us serve static files 
+
 
 //another way of custom middleware is below
 
